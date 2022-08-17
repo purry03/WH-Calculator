@@ -17,13 +17,15 @@ nav{
     font-size: 2rem;
     letter-spacing: 2pt;
     border-bottom: 1px solid #eee;
+    background-color: #999;
+    color : #000;
 }
 
 .main{
     padding: 30px;
 }
 
-select{
+select,input{
     border: none;
     padding: 5px;
 }

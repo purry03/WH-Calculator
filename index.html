@@ -16,43 +16,17 @@
         <h2>Wormhole</h2>
         <label>Mass: </label>
         <select id="whMass">
+            <option value="0.1">100,000 Tons</option>
+            <option value="0.5">500,000 Tons</option>
+            <option value="0.75">750,000 Tons</option>
             <option value="1">1 Million Tons</option>
             <option value="2">2 Million Tons</option>
-            <option value="3">3 Million Tons</option>
+            <option value="3" selected>3 Million Tons</option>
             <option value="3.3">3.3 Million Tons</option>
+            <option value="5">5 Million Tons</option>
         </select>   
         <hr>
         <h2>Mass Passed Through</h2>
-        <!-- <label>Rolling Carrier (Cold):</label>
-        <select>
-            <option value="0">0 </option>
-            <option value="1">1 </option>
-            <option value="2">2 </option>
-            <option value="3">3 </option>
-            <option value="4">4 </option>
-            <option value="5">5 </option>
-            <option value="6">6 </option>
-            <option value="7">7 </option>
-            <option value="8">8 </option>
-            <option value="9">9 </option>
-            <option value="10">10 </option>
-        </select>   
-        <br><br>
-        <label>Rolling Carrier (hot):</label>
-        <select>
-            <option value="0">0 </option>
-            <option value="1">1 </option>
-            <option value="2">2 </option>
-            <option value="3">3 </option>
-            <option value="4">4 </option>
-            <option value="5">5 </option>
-            <option value="6">6 </option>
-            <option value="7">7 </option>
-            <option value="8">8 </option>
-            <option value="9">9 </option>
-            <option value="10">10 </option>
-        </select>   
-        <br><br> -->
         <label>Rolling Battleship (Cold):</label>
         <select id="numRollingBSCold">
             <option value="0">0 </option>
@@ -98,7 +72,24 @@
             <option value="10">10 </option>
         </select>   
         <br><br>
-        <label>Custom Mass</label>
+        <label>Carrier:</label>
+        <select id="numCarrier">
+            <option value="0">0 </option>
+            <option value="1">1 </option>
+            <option value="2">2 </option>
+            <option value="3">3 </option>
+            <option value="4">4 </option>
+            <option value="5">5 </option>
+            <option value="6">6 </option>
+            <option value="7">7 </option>
+            <option value="8">8 </option>
+            <option value="9">9 </option>
+            <option value="10">10 </option>
+        </select>   
+        <br><br>
+        <label>Custom Mass: </label>
+        <input type="text" id="customMass">
+        <br><br>
         <button onclick="calculate()">Calculate Mass Left</button>
         <hr>
         <h2>Mass Left Until Collapse</h2>
@@ -110,14 +101,14 @@
             </thead>
             <tbody>
                 <tr>
-                <td>2.5</td>
+                <td id="0varianceMassLeft">-</td>
                 <td>0%</td>
                 </tr>
                 <tr>
-                <td>2.3</td>
+                <td id="minus10varianceMassLeft">-</td>
                 <td>-10%</td>
                 </tr><tr>
-                <td>2.8</td>
+                <td id="plus10varianceMassLeft">-</td>
                 <td>+10%</td>
                 </tr>
             </tbody>
@@ -128,77 +119,87 @@
             <thead>
                 <th>Ship Type</th>
                 <th>Mass (tons)</th>
-                <th>Jumps Left ( Average )</th>
-                <th>Jumps Left ( Worst Case )</th>
-                <th>Jumps Left ( Best Case )</th>
+                <th>Jumps Left ( 0% Variance in Mass )</th>
+                <th>Jumps Left ( +10% Variance in Mass )</th>
+                <th>Jumps Left ( -10% Variance in Mass )</th>
             </thead>
             <tbody>
-                <tr>
+                <tr id="Frigate">
                     <td>Frigate</td>
-                    <td>1100</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1,100</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
-                <tr>
+                <tr id="Destroyer">
                     <td>Destroyer</td>
-                    <td>1700</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1,700</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
-                <tr>
+                <tr id="Cruiser">
                     <td>Cruiser</td>
-                    <td>13000</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>13,000</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
-                <tr>
+                <tr id="RollingHIC">
+                    <td>Rolling HIC</td>
+                    <td>138,000</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
+                </tr>
+                <tr id="Battlecruiser">
                     <td>Battecruiser</td>
-                    <td>14250</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>14,250</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
-                <tr>
+                <tr id="Battleship">
                     <td>Battleship</td>
-                    <td>95000</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>95,000</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
-                <tr>
+                <tr id="RollingBattleshipCold">
                     <td>Rolling Battleship (Cold)</td>
-                    <td>200000</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>200.000</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
-                <tr>
+                <tr id="RollingBattleshipHot">
                     <td>Rolling Battleship (Hot)</td>
-                    <td>300000</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>300,000</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
-                <tr>
+                <tr id="Carrier">
                     <td>Carrier</td>
-                    <td>1230000</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1,230,000</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
-                <tr>
+                <tr id="Dreadnought"> 
                     <td>Dreadnought</td>
-                    <td>1260000</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1,260,000</td>
+                    <td id="jumpsLeft0">0</td>
+                    <td id="jumpsLeftPlus10">0</td>
+                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <footer style="text-align: right; padding: 10px 25px;background-color:#333">
+        Made By Contrum Inkunen
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>
