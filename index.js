@@ -31,7 +31,8 @@ function calculate() {
     let numRollingBSHot = parseInt($("#numRollingBSHot").val());
     let numRollingHIC = parseInt($("#numRollingHIC").val());
     let customMass = parseInt($("#customMass").val()) || 0;
-    let massPassed = (numRollingBSCold * getMass('RollingBattleshipCold') + numRollingBSHot * getMass('RollingBattleshipHot') + numRollingHIC * getMass('RollingHIC') + numCarrier * getMass("CarrierHot") + customMass)
+    let numCustomMass = parseInt($("#numCustomMass").val());
+    let massPassed = (numRollingBSCold * getMass('RollingBattleshipCold') + numRollingBSHot * getMass('RollingBattleshipHot') + numRollingHIC * getMass('RollingHIC') + numCarrier * getMass("CarrierHot") + customMass * numCustomMass)
 
 
     let massLeft = parseInt(whMass - massPassed);
