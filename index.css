@@ -17,8 +17,8 @@ nav{
     font-size: 2rem;
     letter-spacing: 2pt;
     border-bottom: 1px solid #eee;
-    background-color: #999;
-    color : #000;
+    background-color: #000;
+    color : #eee;
 }
 
 .main{

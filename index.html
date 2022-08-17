@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WH Calculator</title>
+    <title>WH Mass Calculator</title>
+    <link rel="icon" type="image/png" href="img/wormhole.png" />
     <link rel="stylesheet" href="index.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
@@ -95,7 +96,7 @@
         </select>   
         <br><br>
         <label>Custom Mass: </label>
-        <input type="text" id="customMass">
+        <input type="text" id="customMass" placeholder="tons">
         <label>X</l abel>
         <select id="numCustomMass">
             <option value="0">0 </option>
@@ -140,87 +141,87 @@
             <thead>
                 <th>Ship Type</th>
                 <th>Mass (tons)</th>
+                <th>Jumps Left ( -10% Variance in Mass )</th>
                 <th>Jumps Left ( 0% Variance in Mass )</th>
                 <th>Jumps Left ( +10% Variance in Mass )</th>
-                <th>Jumps Left ( -10% Variance in Mass )</th>
             </thead>
             <tbody>
                 <tr id="Frigate">
                     <td>Frigate</td>
                     <td>1,100</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="Destroyer">
                     <td>Destroyer</td>
                     <td>1,700</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="Cruiser">
                     <td>Cruiser</td>
                     <td>13,000</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="RollingHIC">
                     <td>Rolling HIC</td>
                     <td>138,000</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="Battlecruiser">
                     <td>Battecruiser</td>
                     <td>14,250</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="Battleship">
                     <td>Battleship</td>
                     <td>95,000</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="RollingBattleshipCold">
                     <td>Rolling Battleship (Cold)</td>
                     <td>200.000</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="RollingBattleshipHot">
                     <td>Rolling Battleship (Hot)</td>
                     <td>300,000</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="Carrier">
                     <td>Carrier</td>
                     <td>1,230,000</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="CarrierHot">
                     <td>Carrier (Hot)</td>
                     <td>1,730,000</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
                 <tr id="Dreadnought"> 
                     <td>Dreadnought</td>
                     <td>1,260,000</td>
+                    <td id="jumpsLeftMinus10">0</td>
                     <td id="jumpsLeft0">0</td>
                     <td id="jumpsLeftPlus10">0</td>
-                    <td id="jumpsLeftMinus10">0</td>
                 </tr>
             </tbody>
         </table>
