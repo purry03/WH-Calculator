@@ -9,6 +9,7 @@ let massList = {
     "Battlecruiser": 14250,
     "Battleship": 95000,
     "Carrier": 1230000,
+    "CarrierHot": 1730000,
     "Dreadnought": 1260000
 }
 
@@ -25,12 +26,13 @@ function calculate() {
     let modifier = parseFloat($("#modifier").val());
     whMass = whMass * modifier;
 
-    let numCarrier = parseInt($("#numCarrier").val());
+    let numCarrier = parseInt($("#numCarrierHot").val());
     let numRollingBSCold = parseInt($("#numRollingBSCold").val());
     let numRollingBSHot = parseInt($("#numRollingBSHot").val());
     let numRollingHIC = parseInt($("#numRollingHIC").val());
     let customMass = parseInt($("#customMass").val()) || 0;
-    let massPassed = (numRollingBSCold * getMass('RollingBattleshipCold') + numRollingBSHot * getMass('RollingBattleshipHot') + numRollingHIC * getMass('RollingHIC') + numCarrier * getMass("Carrier") + customMass)
+    let massPassed = (numRollingBSCold * getMass('RollingBattleshipCold') + numRollingBSHot * getMass('RollingBattleshipHot') + numRollingHIC * getMass('RollingHIC') + numCarrier * getMass("CarrierHot") + customMass)
+
 
     let massLeft = parseInt(whMass - massPassed);
     let massLeftPlus10 = parseInt((whMass * 1.1) - massPassed);
@@ -43,9 +45,9 @@ function calculate() {
     for (ship in massList) {
         let shipmass = getMass(ship);
 
-        let jumpsLeft0 = Math.max(0, parseInt(massLeft / shipmass));
-        let jumpsLeftPlus10 = Math.max(0, parseInt(massLeftPlus10 / shipmass));
-        let jumpsLeftMinus10 = Math.max(0, parseInt(massLeftMinus10 / shipmass));
+        let jumpsLeft0 = Math.max(0, parseInt(Math.ceil(massLeft / shipmass)));
+        let jumpsLeftPlus10 = Math.max(0, parseInt(Math.ceil(massLeftPlus10 / shipmass)));
+        let jumpsLeftMinus10 = Math.max(0, parseInt(Math.ceil(massLeftMinus10 / shipmass)));
 
         $(`#${ship} #jumpsLeft0`).html(numberWithCommas(jumpsLeft0));
         $(`#${ship} #jumpsLeftPlus10`).html(numberWithCommas(jumpsLeftPlus10));
