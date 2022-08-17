@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WH Calculator</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>Wormhole Mass Calculator</nav>
+    <div class="main">
+        <h1>Roll Calculator</h1>
+
+        <h2>Wormhole</h2>
+        <label>Mass: </label>
+        <select id="whMass">
+            <option value="1">1 Million Tons</option>
+            <option value="2">2 Million Tons</option>
+            <option value="3">3 Million Tons</option>
+            <option value="3.3">3.3 Million Tons</option>
+        </select>   
+        <hr>
+        <h2>Mass Passed Through</h2>
+        <!-- <label>Rolling Carrier (Cold):</label>
+        <select>
+            <option value="0">0 </option>
+            <option value="1">1 </option>
+            <option value="2">2 </option>
+            <option value="3">3 </option>
+            <option value="4">4 </option>
+            <option value="5">5 </option>
+            <option value="6">6 </option>
+            <option value="7">7 </option>
+            <option value="8">8 </option>
+            <option value="9">9 </option>
+            <option value="10">10 </option>
+        </select>   
+        <br><br>
+        <label>Rolling Carrier (hot):</label>
+        <select>
+            <option value="0">0 </option>
+            <option value="1">1 </option>
+            <option value="2">2 </option>
+            <option value="3">3 </option>
+            <option value="4">4 </option>
+            <option value="5">5 </option>
+            <option value="6">6 </option>
+            <option value="7">7 </option>
+            <option value="8">8 </option>
+            <option value="9">9 </option>
+            <option value="10">10 </option>
+        </select>   
+        <br><br> -->
+        <label>Rolling Battleship (Cold):</label>
+        <select id="numRollingBSCold">
+            <option value="0">0 </option>
+            <option value="1">1 </option>
+            <option value="2">2 </option>
+            <option value="3">3 </option>
+            <option value="4">4 </option>
+            <option value="5">5 </option>
+            <option value="6">6 </option>
+            <option value="7">7 </option>
+            <option value="8">8 </option>
+            <option value="9">9 </option>
+            <option value="10">10 </option>
+        </select>   
+        <br><br>
+        <label>Rolling Battleship (Hot):</label>
+        <select id="numRollingBSHot">
+            <option value="0">0 </option>
+            <option value="1">1 </option>
+            <option value="2">2 </option>
+            <option value="3">3 </option>
+            <option value="4">4 </option>
+            <option value="5">5 </option>
+            <option value="6">6 </option>
+            <option value="7">7 </option>
+            <option value="8">8 </option>
+            <option value="9">9 </option>
+            <option value="10">10 </option>
+        </select>   
+        <br><br>
+        <label>Rolling Hic:</label>
+        <select id="numRollingHIC">
+            <option value="0">0 </option>
+            <option value="1">1 </option>
+            <option value="2">2 </option>
+            <option value="3">3 </option>
+            <option value="4">4 </option>
+            <option value="5">5 </option>
+            <option value="6">6 </option>
+            <option value="7">7 </option>
+            <option value="8">8 </option>
+            <option value="9">9 </option>
+            <option value="10">10 </option>
+        </select>   
+        <br><br>
+        <label>Custom Mass</label>
+        <button onclick="calculate()">Calculate Mass Left</button>
+        <hr>
+        <h2>Mass Left Until Collapse</h2>
+
+        <table style="width: 250px">
+            <thead>
+                <th>Tons</th>
+                <th>Variance</th>
+            </thead>
+            <tbody>
+                <tr>
+                <td>2.5</td>
+                <td>0%</td>
+                </tr>
+                <tr>
+                <td>2.3</td>
+                <td>-10%</td>
+                </tr><tr>
+                <td>2.8</td>
+                <td>+10%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Equivalent To</h2>
+        <table>
+            <thead>
+                <th>Ship Type</th>
+                <th>Mass (tons)</th>
+                <th>Jumps Left ( Average )</th>
+                <th>Jumps Left ( Worst Case )</th>
+                <th>Jumps Left ( Best Case )</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Frigate</td>
+                    <td>1100</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Destroyer</td>
+                    <td>1700</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Cruiser</td>
+                    <td>13000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Battecruiser</td>
+                    <td>14250</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Battleship</td>
+                    <td>95000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Rolling Battleship (Cold)</td>
+                    <td>200000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Rolling Battleship (Hot)</td>
+                    <td>300000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Carrier</td>
+                    <td>1230000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Dreadnought</td>
+                    <td>1260000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
