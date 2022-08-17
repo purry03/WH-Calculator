@@ -21,13 +21,16 @@ function numberWithCommas(x) {
 }
 
 function calculate() {
-    let whMass =  parseFloat($("#whMass").val()) * 1000000;
+    let whMass = parseFloat($("#whMass").val()) * 1000000;
+    let modifier = parseFloat($("#modifier").val());
+    whMass = whMass * modifier;
+
     let numCarrier = parseInt($("#numCarrier").val());
     let numRollingBSCold = parseInt($("#numRollingBSCold").val());
     let numRollingBSHot = parseInt($("#numRollingBSHot").val());
     let numRollingHIC = parseInt($("#numRollingHIC").val());
     let customMass = parseInt($("#customMass").val()) || 0;
-    let massPassed = (numRollingBSCold * getMass('RollingBattleshipCold') + numRollingBSHot * getMass('RollingBattleshipHot') + numRollingHIC * getMass('RollingHIC')+numCarrier * getMass("Carrier") +customMass)
+    let massPassed = (numRollingBSCold * getMass('RollingBattleshipCold') + numRollingBSHot * getMass('RollingBattleshipHot') + numRollingHIC * getMass('RollingHIC') + numCarrier * getMass("Carrier") + customMass)
 
     let massLeft = parseInt(whMass - massPassed);
     let massLeftPlus10 = parseInt((whMass * 1.1) - massPassed);
@@ -37,12 +40,12 @@ function calculate() {
     $("#minus10varianceMassLeft").html(numberWithCommas(massLeftMinus10));
     $("#plus10varianceMassLeft").html(numberWithCommas(massLeftPlus10));
 
-    for (ship in massList){
+    for (ship in massList) {
         let shipmass = getMass(ship);
 
-        let jumpsLeft0 = Math.max(0,parseInt(massLeft/shipmass));
-        let jumpsLeftPlus10 = Math.max(0,parseInt(massLeftPlus10/shipmass));
-        let jumpsLeftMinus10 = Math.max(0,parseInt(massLeftMinus10/shipmass));
+        let jumpsLeft0 = Math.max(0, parseInt(massLeft / shipmass));
+        let jumpsLeftPlus10 = Math.max(0, parseInt(massLeftPlus10 / shipmass));
+        let jumpsLeftMinus10 = Math.max(0, parseInt(massLeftMinus10 / shipmass));
 
         $(`#${ship} #jumpsLeft0`).html(numberWithCommas(jumpsLeft0));
         $(`#${ship} #jumpsLeftPlus10`).html(numberWithCommas(jumpsLeftPlus10));
