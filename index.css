@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css);
+
 
 *{
     box-sizing: border-box;
@@ -74,10 +76,17 @@ label{
     text-align: left;
 }
 
-table.dataTable thead .sorting_asc {
-    background-image: url("/YourImageFolder/sort_asc.png")
+.select2-dropdown{
+    background-color: #000;
+    color: #fff;
 }
 
-table.dataTable thead .sorting_desc {
-    background-image: url("/YourImageFolder/sort_desc.png")
+.select2-results__option--highlighted{
+    color: #000 !important;
 }
+
+#whName{
+    padding: 0 75px;
+    text-align: center;
+}
+

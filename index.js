@@ -28,6 +28,18 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function initializeWhList(){
+
+    let optionsHtml = '';
+
+    whData.forEach(wh => {
+        let option = `<option value="${wh.maxStableMass}">${wh.Name}</option>`
+        optionsHtml += option;
+    });
+
+    $("#whName").html(optionsHtml);
+}
+
 function calculate() {
     let whMass = parseFloat($("#whMass").val()) * 1000000;
     let modifier = parseFloat($("#modifier").val());
@@ -65,6 +77,12 @@ function calculate() {
 
 
 $(document).ready( function () {
+
+    initializeWhList();
+
+    $("#whName").select2({placeholder: "Wormhole Code",
+allowClear:true});
+
     $('#massTable').DataTable({
         paging: false,
         searching: true,
@@ -73,3 +91,7 @@ $(document).ready( function () {
           ]
     });
 } );
+
+$('#whName').on('change', function() {
+    $("#whMass").val( parseInt($("#whName").val())/ 1000000000 );
+  });

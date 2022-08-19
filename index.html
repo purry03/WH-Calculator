@@ -19,7 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-</head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.full.min.js"></script></head>
 
 <body>
     <nav>Wormhole Mass Calculator</nav>
@@ -27,6 +27,10 @@
         <h1>Roll Calculator</h1>
 
         <h2>Wormhole</h2>
+        <label>Name:</label>
+        <select id="whName" data-search="true">
+        </select>
+        <br><br>
         <label>Mass: </label>
         <select id="whMass">
             <option value="0.1">100,000 Tons</option>
@@ -299,5 +303,7 @@
         Made By Contrum Inkunen
     </footer>
     <script src="index.js"></script>
+    <script src="wormholes.js"></script>
+
 </body>
 </html>
