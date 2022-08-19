@@ -28,6 +28,7 @@ nav{
 select,input{
     border: none;
     padding: 5px;
+    background-color: #fff !important;
 }
 
 button{
@@ -42,12 +43,41 @@ table{
     border-collapse: collapse;
 }
 
-th,td{
+td{
     border: 1px solid #eee;
+    border-top: none;
     padding: 10px;
     text-align: center  ;
 }
 
+thead{
+    background-color: #eee;
+    color: #000;
+    text-align: center;
+}
+
+th{
+    border: #000 1px solid;
+    text-align: center !important;
+}
+
 td:nth-child(1){
     text-align: left;
+}
+
+label{
+    color: #fff !important;
+}
+
+#massTable_filter{
+    margin: 10px 0;
+    text-align: left;
+}
+
+table.dataTable thead .sorting_asc {
+    background-image: url("/YourImageFolder/sort_asc.png")
+}
+
+table.dataTable thead .sorting_desc {
+    background-image: url("/YourImageFolder/sort_desc.png")
 }

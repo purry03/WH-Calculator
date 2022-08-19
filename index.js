@@ -62,3 +62,14 @@ function calculate() {
         $(`#${ship} #jumpsLeftMinus10`).html(numberWithCommas(jumpsLeftMinus10));
     }
 }
+
+
+$(document).ready( function () {
+    $('#massTable').DataTable({
+        paging: false,
+        searching: true,
+        columnDefs: [
+            { orderable: false, targets: [2,3,4] }
+          ]
+    });
+} );

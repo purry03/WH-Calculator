@@ -17,6 +17,8 @@
     <link rel="icon" type="image/png" href="img/wormhole.png" />
     <link rel="stylesheet" href="index.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -145,10 +147,10 @@
                 </tr>
             </tbody>
         </table>
-
+        <br><br>
         <h2>Equivalent To</h2>
         
-        <table>
+        <table id="massTable">
             <thead>
                 <th>Ship Type</th>
                 <th>Mass (tons)</th>
