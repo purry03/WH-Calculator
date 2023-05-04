@@ -23,6 +23,17 @@ nav{
     color : #eee;
 }
 
+#notice{
+    padding: 25px;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+#notice br{
+    margin: 5px 0;
+}
+
 .main{
     padding: 30px;
 }
